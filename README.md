@@ -17,6 +17,12 @@ Project will be visible at
 http://localhost:5173
 ```
 
+Sample CSV File used to test the project
+
+```js
+https://drive.google.com/file/d/19OVMnbzJVxKUtn-2l6Iv4KQAx7lLlyJ_/view?usp=sharing
+```
+
 ## Library Usage
 
 papaparse - for parsing csv files
