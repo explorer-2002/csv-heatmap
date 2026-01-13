@@ -2,6 +2,28 @@ export const CSV_PARSER_CONSTANTS = {
     DEFAULT_PAGE_SIZE: 10,
     MAX_ROWS_DEFAULT: 10000,
     PAGE_SIZE_OPTIONS: [10, 25, 50, 100],
+    // Required columns in the CSV. Update this list to match your schema.
+    REQUIRED_HEADERS: [
+      'Item Code',
+      'Material',
+      'Quantity',
+      'Estimated Rate',
+      'Supplier 1 (Rate)',
+      'Supplier 2 (Rate)',
+      'Supplier 3 (Rate)',
+      'Supplier 4 (Rate)',
+      'Supplier 5 (Rate)',
+    ],
+    // Columns that must contain numeric data (case-insensitive matching)
+    REQUIRED_NUMERIC_HEADERS: [
+      'Quantity',
+      'Estimated Rate',
+      'Supplier 1 (Rate)',
+      'Supplier 2 (Rate)',
+      'Supplier 3 (Rate)',
+      'Supplier 4 (Rate)',
+      'Supplier 5 (Rate)',
+    ],
     PARSE_CONFIG: {
       header: true,
       skipEmptyLines: true,

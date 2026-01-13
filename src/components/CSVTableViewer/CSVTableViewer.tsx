@@ -14,58 +14,13 @@ import { ErrorDisplay } from './ErrorDisplay';
 import { EmptyState } from './EmptyState';
 import { Button, Menu, MenuItem } from '@mui/material';
 
-// Utility to interpolate color between green and red according to a normalized value [0, 1]
-// minValue gets green, maxValue gets red, values in between get a gradient
-// Modified: Now returns colors such that the minimum "rate" in the row is greenest, the maximum is reddest, and intermediates smoothly interpolate.
-// For N supplier rates in the row, computes color per rate based on rank (0 = min, 1 = max).
-// function getSupplierRateColorByRow(
-//   value: number,
-//   allRatesInRow: number[],
-// ): string {
-//   if (!Array.isArray(allRatesInRow) || allRatesInRow.length === 0) {
-//     return '#C8E6C9'; // fallback: light green
-//   }
-//   const validRates = allRatesInRow.filter((n) => isFinite(n));
-//   if (validRates.length === 0) {
-//     return '#C8E6C9';
-//   }
-//   const min = Math.min(...validRates);
-//   const max = Math.max(...validRates);
-
-//   if (max === min) {
-//     return '#C8E6C9'; // all same
-//   }
-//   // Normalize: 0 for min -> green, 1 for max -> red
-//   const ratio = (value - min) / (max - min);
-
-//   // Gradient from green (low) to red (high)
-//   const r = Math.round(200 + 55 * ratio); // 200->255
-//   const g = Math.round(230 - 60 * ratio); // 230->170
-//   const b = Math.round(201 - 70 * ratio); // 201->131
-//   return `rgb(${r},${g},${b})`;
-// }
-
-// function getSupplierRateColor(value: number, min: number, max: number): string {
-//   if (max === min) {
-//     // Only one supplier, just use green
-//     return '#C8E6C9'; // Light green
-//   }
-//   // Normalize value between 0 and 1
-//   const ratio = (value - min) / (max - min);
-//   // Gradient from green (low) to red (high)
-//   const r = Math.round(200 + 55 * ratio); // 200->255
-//   const g = Math.round(230 - 60 * ratio); // 230->170
-//   const b = Math.round(201 - 70 * ratio); // 201->131
-//   return `rgb(${r},${g},${b})`;
-// }
-
 // Helper to get up/down arrow unicode and color for percentage diff
 function getDiffIndicator(diff: number) {
   if (diff > 0) {
-    return { arrow: '↑', color: '#D32F2F' }; // red, upwards
+    return { arrow: '↑', color: '#D32F2F' };
   }
   if (diff < 0) {
-    return { arrow: '↓', color: '#388E3C' }; // green, downwards
+    return { arrow: '↓', color: '#388E3C' };
   }
   return { arrow: '', color: '#757575' };
 }
@@ -132,8 +87,8 @@ function getSupplierRateColorRelativeInRow(
 
   // Calculate interpolation factor within the current segment
   const segmentRange = endStop.stop - startStop.stop;
-  const segmentRatio = segmentRange > 0 
-    ? (ratio - startStop.stop) / segmentRange 
+  const segmentRatio = segmentRange > 0
+    ? (ratio - startStop.stop) / segmentRange
     : 0;
 
   // Interpolate between the two color stops
