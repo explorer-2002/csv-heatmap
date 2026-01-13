@@ -151,6 +151,14 @@ Heatmap logic
    - Logic for generating color coding for heatmap can be made more generalized and dynamic to generate the
 
      colors dynamically based on the number of columns ( instead of using fixed number of color stops )
+
+   - Writing tests to improve reliability
+
+   - Through testing in different browsers to ensure that the entire functionality works as expected
+
+     also we can test for different devices.
+
+   - Making the table UI responsive for mobile devices also. 
      
 
 
